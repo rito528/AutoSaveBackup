@@ -1,0 +1,5 @@
+name: AutoSaveBackup
+version: 1.0.0
+main: com.gmail.rotoyutoriapp.AutoSaveBackup
+api-version: 1.17
+author: rito528
