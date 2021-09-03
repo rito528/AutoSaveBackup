@@ -20,5 +20,9 @@ object getConfig {
 
   def deleteTargetDay(): Int = config.getInt("deleteTargetDay")
 
+  def isRestart: Boolean = config.getBoolean("restart")
+
+  def getRestartTime: Array[AnyRef] = config.getStringList("restartTime").toArray()
+
 }
 
