@@ -27,7 +27,9 @@
     <orderEntry type="library" scope="PROVIDED" name="sbt: com.google.code.gson:gson:2.8.0:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: com.google.guava:guava:21.0:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: commons-lang:commons-lang:2.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: joda-time:joda-time:2.9.2:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: net.md-5:bungeecord-chat:1.16-R0.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.joda:joda-convert:1.8:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.6:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: org.yaml:snakeyaml:1.28:jar" level="project" />

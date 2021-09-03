@@ -2,16 +2,19 @@ package com.gmail.rotoyutoriapp
 
 import org.bukkit.command.{Command, CommandSender}
 import org.bukkit.plugin.java.JavaPlugin
+import org.bukkit.scheduler.BukkitRunnable
 
 class AutoSaveBackup extends JavaPlugin {
 
   private val save = new Save(this)
+  private val backup = new Backup(this)
 
   override def onEnable(): Unit = {
     super.onEnable()
     com.gmail.rotoyutoriapp.getConfig.config = getConfig
     saveDefaultConfig()
     save.start()
+    backup.startBackup()
     getLogger.info("AutoSaveBackup enabled.")
   }
 
@@ -29,11 +32,15 @@ class AutoSaveBackup extends JavaPlugin {
         case "save" =>
           save.saveWorld()
           return true
+        case "backup" =>
+          new Backup(this).start()
+          return true
         case "help" =>
-          sender.sendMessage("+-----------------------------------+")
+          sender.sendMessage("+---------------------------------------+")
           sender.sendMessage("コマンド一覧")
           sender.sendMessage("/asb save - ワールドセーブを行います。")
-          sender.sendMessage("+-----------------------------------+")
+          sender.sendMessage("/asb backup - ワールドバックアップを行います。")
+          sender.sendMessage("+---------------------------------------+")
           return true
       }
     }

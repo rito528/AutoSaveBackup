@@ -10,5 +10,9 @@ object getConfig {
 
   def getSaveInterval: Long = config.getLong("saveInterval") * 20 * 60
 
+  def isAutoBackup: Boolean = config.getBoolean("autoBackup")
+
+  def getBackupInterval: Long = config.getLong("backupInterval") * 20 * 60
+
 }
 

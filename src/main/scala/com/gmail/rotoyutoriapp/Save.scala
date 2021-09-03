@@ -4,10 +4,10 @@ import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.{Bukkit, ChatColor}
 
 class Save(instance: AutoSaveBackup) {
-  val autoSaveBackup: AutoSaveBackup = instance
+  private val autoSaveBackup: AutoSaveBackup = instance
 
   def saveWorld(): Unit = {
-    Bukkit.broadcastMessage(ChatColor.AQUA + "ワールドをセーブしています。")
+    Bukkit.broadcastMessage(ChatColor.AQUA + "ワールドをセーブしています...")
     Bukkit.getWorlds.forEach(world => world.save())
     Bukkit.broadcastMessage(ChatColor.AQUA + "ワールドのセーブが完了しました！")
   }
