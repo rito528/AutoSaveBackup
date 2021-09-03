@@ -1,8 +1,10 @@
 package com.gmail.rotoyutoriapp
 
+import org.bukkit.ChatColor
 import org.bukkit.command.{Command, CommandSender}
 import org.bukkit.plugin.java.JavaPlugin
-import org.bukkit.scheduler.BukkitRunnable
+
+import java.util
 
 class AutoSaveBackup extends JavaPlugin {
 
@@ -30,9 +32,17 @@ class AutoSaveBackup extends JavaPlugin {
     if (label.equalsIgnoreCase("asb")) {
       args(0) match {
         case "save" =>
+          if (!sender.hasPermission("asb.save")) {
+            sender.sendMessage(ChatColor.RED + "実行権限がありません！")
+            return true
+          }
           save.saveWorld()
           return true
         case "backup" =>
+          if (!sender.hasPermission("asb.backup")) {
+            sender.sendMessage(ChatColor.RED + "実行権限がありません！")
+            return true
+          }
           new Backup(this).start()
           return true
         case "help" =>
@@ -45,6 +55,27 @@ class AutoSaveBackup extends JavaPlugin {
       }
     }
     false
+  }
+
+  override def onTabComplete(sender: CommandSender, command: Command, alias: String, args: Array[String]): util.List[String] = {
+    super.onTabComplete(sender, command, alias, args)
+    if (!command.getName.equalsIgnoreCase("asb")) return super.onTabComplete(sender,command,alias,args)
+    if (args.length == 1) {
+      return tabPermission(sender)
+    }
+    super.onTabComplete(sender,command,alias,args)
+  }
+
+  def tabPermission(sender: CommandSender): util.ArrayList[String] = {
+    val permissionList = Map(
+      "asb.save" -> "save",
+      "asb.backup" -> "backup"
+    )
+    val commandList = new util.ArrayList[String]()
+    permissionList.foreach({case (p,cmd) =>
+      if (sender.hasPermission(p)) commandList.add(cmd)
+    })
+    commandList
   }
 
 }

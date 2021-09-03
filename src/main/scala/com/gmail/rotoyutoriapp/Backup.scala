@@ -21,13 +21,15 @@ class Backup(instance: AutoSaveBackup) extends Thread {
     if (!tmp.exists()) tmp.mkdirs()
     val jst = new DateTime(DateTimeZone.forID("Asia/Tokyo"))
     Bukkit.getWorlds.forEach(w => {
-      val worldFile = new File(w.getName)
-      val tmpWorldFile = new File(backupDirectory + "tmp/" + w.getName)
-      if (!tmpWorldFile.exists()) tmpWorldFile.mkdirs()
-      worldFile.listFiles().foreach(f => {
-        fileCompression.deepCopy(f.getPath)
-      })
-      fileCompression.zipFolder(backupDirectory + "tmp",backupDirectory + s"worldBackups/${jst.toString("yyyy-MM-dd-HH-mm")}.zip")
+      if (getConfig.getBackupWorld.contains("*") || getConfig.getBackupWorld.contains(w.getName)) {
+        val worldFile = new File(w.getName)
+        val tmpWorldFile = new File(backupDirectory + "tmp/" + w.getName)
+        if (!tmpWorldFile.exists()) tmpWorldFile.mkdirs()
+        worldFile.listFiles().foreach(f => {
+          fileCompression.deepCopy(f.getPath)
+        })
+        fileCompression.zipFolder(backupDirectory + "tmp", backupDirectory + s"worldBackups/${jst.toString("yyyy-MM-dd-HH-mm")}.zip")
+      }
     })
     fileCompression.deleteFiles(backupDirectory + "tmp/")
     Bukkit.broadcastMessage(ChatColor.AQUA + "ワールドのバックアップが完了しました！")

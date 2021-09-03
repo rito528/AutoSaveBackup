@@ -14,5 +14,7 @@ object getConfig {
 
   def getBackupInterval: Long = config.getLong("backupInterval") * 20 * 60
 
+  def getBackupWorld: Array[AnyRef] = config.getStringList("backupWorlds").toArray()
+
 }
 

@@ -5,10 +5,16 @@ api-version: 1.17
 author: rito528 (528.rito@gmail.com)
 commands:
   asb:
-    permission: asb.asb
-    permission-message: 'あなたは権限を持っていません！'
+    description: AutoSaveBackupに関するコマンド
     usage: /asb <args>
 
 permissions:
-  asb.asb:
+  asb.*:
+    default: op
+    children:
+      asb.save: true
+      asb.backup: true
+  asb.save:
+    default: op
+  asb.backup:
     default: op
