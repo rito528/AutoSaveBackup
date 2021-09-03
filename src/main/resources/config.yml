@@ -22,3 +22,9 @@ backupInterval: 180
 # - world_the_end
 backupWorlds:
   - '*'
+
+#バックアップを一定日数で自動削除するか
+isAutoBackupDelete: false
+
+#何日前以降のバックアップを削除するか
+deleteTargetDay: 20

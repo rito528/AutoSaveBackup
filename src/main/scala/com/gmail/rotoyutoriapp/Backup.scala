@@ -2,9 +2,10 @@ package com.gmail.rotoyutoriapp
 
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.{Bukkit, ChatColor}
-import org.joda.time.{DateTime, DateTimeZone}
+import org.joda.time.{DateTime, DateTimeZone, Days}
 
 import java.io.File
+import java.nio.file.Paths
 
 class Backup(instance: AutoSaveBackup) extends Thread {
   private val autoSaveBackup: AutoSaveBackup = instance
@@ -13,6 +14,7 @@ class Backup(instance: AutoSaveBackup) extends Thread {
 
   override def run(): Unit = {
     super.run()
+    //ワールドのバックアップを行う
     Bukkit.broadcastMessage(ChatColor.AQUA + "ワールドをバックアップしています...")
     Bukkit.broadcastMessage(ChatColor.AQUA + "ラグにご注意ください。")
     val worldBackupDirectory = new File(s"${backupDirectory}worldBackups")
@@ -32,6 +34,16 @@ class Backup(instance: AutoSaveBackup) extends Thread {
       }
     })
     fileCompression.deleteFiles(backupDirectory + "tmp/")
+    //古いバックアップを削除する
+    if (getConfig.isAutoBackupDelete) {
+      Paths.get(backupDirectory + "worldBackups/").toFile.listFiles().foreach(f => {
+        val fileName = f.getName.replace(".zip","").split("-")
+        val fileTime = new DateTime(fileName(0).toInt,fileName(1).toInt,fileName(2).toInt,fileName(3).toInt,fileName(4).toInt)
+        if (Days.daysBetween(fileTime,jst).getDays >= getConfig.deleteTargetDay()) {
+          f.delete()
+        }
+      })
+    }
     Bukkit.broadcastMessage(ChatColor.AQUA + "ワールドのバックアップが完了しました！")
   }
 

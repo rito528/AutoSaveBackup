@@ -16,5 +16,9 @@ object getConfig {
 
   def getBackupWorld: Array[AnyRef] = config.getStringList("backupWorlds").toArray()
 
+  def isAutoBackupDelete: Boolean = config.getBoolean("isAutoBackupDelete")
+
+  def deleteTargetDay(): Int = config.getInt("deleteTargetDay")
+
 }
 

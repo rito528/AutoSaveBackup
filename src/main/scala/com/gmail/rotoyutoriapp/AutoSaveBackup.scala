@@ -46,10 +46,15 @@ class AutoSaveBackup extends JavaPlugin {
           new Backup(this).start()
           return true
         case "help" =>
+          if (!sender.hasPermission("asb.help")) {
+            sender.sendMessage(ChatColor.RED + "実行権限がありません！")
+            return true
+          }
           sender.sendMessage("+---------------------------------------+")
           sender.sendMessage("コマンド一覧")
           sender.sendMessage("/asb save - ワールドセーブを行います。")
           sender.sendMessage("/asb backup - ワールドバックアップを行います。")
+          sender.sendMessage("/asb help - コマンド一覧を表示します。")
           sender.sendMessage("+---------------------------------------+")
           return true
       }
@@ -69,7 +74,8 @@ class AutoSaveBackup extends JavaPlugin {
   def tabPermission(sender: CommandSender): util.ArrayList[String] = {
     val permissionList = Map(
       "asb.save" -> "save",
-      "asb.backup" -> "backup"
+      "asb.backup" -> "backup",
+      "asb.help" -> "help"
     )
     val commandList = new util.ArrayList[String]()
     permissionList.foreach({case (p,cmd) =>

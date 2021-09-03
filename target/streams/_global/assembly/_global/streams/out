@@ -1,8 +1,8 @@
-[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-core-2.13.0-rc1.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-annotations-2.13.0-rc1.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: joda-time-2.9.2.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: joda-convert-1.8.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: joda-time-2.9.2.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-databind-2.13.0-rc1.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-core-2.13.0-rc1.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: scala-library-2.13.6.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mCalculate mappings...[0m
 [0m[[0m[0mdebug[0m] [0m[0mChecking every *.class/*.jar file's SHA-1.[0m
@@ -11,7 +11,7 @@
 [0m[[0m[0mdebug[0m] [0m[0mMerging 'META-INF/versions/11/module-info.class' with strategy 'first'[0m
 [0m[[0m[0minfo[0m] [0m[0mStrategy 'discard' was applied to a file (Run the task at debug level to see details)[0m
 [0m[[0m[0minfo[0m] [0m[0mStrategy 'first' was applied to a file (Run the task at debug level to see details)[0m
-[0m[[0m[0mdebug[0m] [0m[0mSHA-1: 3a873518babf6d31cbcc73cea17e33bf456981b8[0m
+[0m[[0m[0mdebug[0m] [0m[0mSHA-1: db05386be251b71f43ddedc868a37c65bee3431f[0m
 [0m[[0m[33mwarn[0m] [0m[0mIgnored unknown package option FixedTimestamp(Some(1262304000000))[0m
 [0m[[0m[0mdebug[0m] [0m[0mPackaging /home/rito/Desktop/Develop/AutoSaveBackup/target/scala-2.13/AutoSaveBackup-1.0.0.jar ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
