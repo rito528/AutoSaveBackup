@@ -30,6 +30,7 @@ class AutoSaveBackup extends JavaPlugin {
           backupTime = end.toString("yyyy-MM-dd-HH-mm")
         }
         new Restart(this).restart(backupTime)
+        new Restart(this).restartTimer(end.minusMinutes(1).toString("yyyy-MM-dd-HH-mm"))
       })
     }
     getLogger.info("AutoSaveBackup enabled.")
@@ -60,6 +61,15 @@ class AutoSaveBackup extends JavaPlugin {
           }
           new Backup(this).start()
           return true
+        case "reload" =>
+          if (!sender.hasPermission("asb.reload")) {
+            sender.sendMessage(ChatColor.RED + "実行権限がありません！")
+            return true
+          }
+          this.reloadConfig()
+          sender.sendMessage(ChatColor.AQUA + "configをリロードしました。")
+          com.gmail.rotoyutoriapp.getConfig.config = getConfig
+          return true
         case "help" =>
           if (!sender.hasPermission("asb.help")) {
             sender.sendMessage(ChatColor.RED + "実行権限がありません！")
@@ -69,6 +79,7 @@ class AutoSaveBackup extends JavaPlugin {
           sender.sendMessage("コマンド一覧")
           sender.sendMessage("/asb save - ワールドセーブを行います。")
           sender.sendMessage("/asb backup - ワールドバックアップを行います。")
+          sender.sendMessage("/asb reload - コンフィグをリロードします。")
           sender.sendMessage("/asb help - コマンド一覧を表示します。")
           sender.sendMessage("+---------------------------------------+")
           return true
@@ -90,6 +101,7 @@ class AutoSaveBackup extends JavaPlugin {
     val permissionList = Map(
       "asb.save" -> "save",
       "asb.backup" -> "backup",
+      "asb.reload" -> "reload",
       "asb.help" -> "help"
     )
     val commandList = new util.ArrayList[String]()

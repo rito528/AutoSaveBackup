@@ -1,5 +1,5 @@
 name: AutoSaveBackup
-version: 1.0.0
+version: 1.0.1
 main: com.gmail.rotoyutoriapp.AutoSaveBackup
 api-version: 1.17
 author: rito528 (528.rito@gmail.com)
@@ -19,6 +19,10 @@ permissions:
     children:
       asb.help: true
   asb.backup:
+    default: op
+    children:
+      asb.help: true
+  asb.reload:
     default: op
     children:
       asb.help: true

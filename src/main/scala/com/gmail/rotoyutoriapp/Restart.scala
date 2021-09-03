@@ -1,6 +1,6 @@
 package com.gmail.rotoyutoriapp
 
-import org.bukkit.Bukkit
+import org.bukkit.{Bukkit, ChatColor}
 import org.bukkit.scheduler.BukkitRunnable
 
 import java.text.SimpleDateFormat
@@ -21,6 +21,24 @@ class Restart(autoSaveBackup: AutoSaveBackup) {
       }
     }
     timer.schedule(task,restartTime.parse(time))
+  }
+
+  def restartTimer(time: String): Unit = {
+    val beforeRestartTime:SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm")
+    val timer = new Timer(true)
+    var count = 60
+    val task:TimerTask = new TimerTask {
+      override def run(): Unit = {
+        new BukkitRunnable {
+          override def run(): Unit = {
+            Bukkit.broadcastMessage(ChatColor.AQUA + "定期再起動まであと" + count + "秒" )
+            count -= 1
+            if (count >= 0) this.cancel()
+          }
+        }.runTaskTimer(autoSaveBackup,0,20)
+      }
+    }
+    timer.schedule(task,beforeRestartTime.parse(time))
   }
 
 }
