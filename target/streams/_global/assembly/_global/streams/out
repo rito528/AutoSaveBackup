@@ -1,8 +1,8 @@
-[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-annotations-2.13.0-rc1.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: joda-convert-1.8.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: joda-time-2.9.2.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-core-2.13.0-rc1.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-databind-2.13.0-rc1.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: jackson-annotations-2.13.0-rc1.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: joda-time-2.9.2.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncluding from cache: scala-library-2.13.6.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mCalculate mappings...[0m
 [0m[[0m[0mdebug[0m] [0m[0mChecking every *.class/*.jar file's SHA-1.[0m
@@ -11,9 +11,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mMerging 'META-INF/versions/11/module-info.class' with strategy 'first'[0m
 [0m[[0m[0minfo[0m] [0m[0mStrategy 'discard' was applied to a file (Run the task at debug level to see details)[0m
 [0m[[0m[0minfo[0m] [0m[0mStrategy 'first' was applied to a file (Run the task at debug level to see details)[0m
-[0m[[0m[0mdebug[0m] [0m[0mSHA-1: f688d4dccec716f8ab6b959fcd5f7b03eab9bc4a[0m
+[0m[[0m[0mdebug[0m] [0m[0mSHA-1: a1351d73e6b2b6e6159509eadaadf510b2258015[0m
 [0m[[0m[33mwarn[0m] [0m[0mIgnored unknown package option FixedTimestamp(Some(1262304000000))[0m
-[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/rito/Desktop/Develop/AutoSaveBackup/target/scala-2.13/AutoSaveBackup-1.0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/rito/Desktop/Develop/AutoSaveBackup/target/scala-2.13/AutoSaveBackup-1.0.2.jar ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	LICENSE_scala-library-2.13.6[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/rito/Desktop/Develop/AutoSaveBackup/target/streams/_global/assemblyOption/_global/streams/assembly/baf857f78d0e34dce02c22f66651db04f34cf09d_ed7a2f528c7389ea65746c22a01031613d98ab3d_da39a3ee5e6b4b0d3255bfef95601890afd80709/LICENSE_scala-library-2.13.6[0m

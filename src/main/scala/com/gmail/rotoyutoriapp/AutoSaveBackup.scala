@@ -1,6 +1,6 @@
 package com.gmail.rotoyutoriapp
 
-import org.bukkit.ChatColor
+import org.bukkit.{Bukkit, ChatColor}
 import org.bukkit.command.{Command, CommandSender}
 import org.bukkit.plugin.java.JavaPlugin
 import org.joda.time.{DateTime, DateTimeZone, Minutes}
@@ -23,14 +23,14 @@ class AutoSaveBackup extends JavaPlugin {
         val jst = new DateTime(DateTimeZone.forID("Asia/Tokyo"))
         val endTime = new DateTime(DateTimeZone.forID("Asia/Tokyo"))
         val end = new DateTime(endTime.withTime(time.toString.split(":")(0).toInt,time.toString.split(":")(1).toInt,0,0))
-        var backupTime = ""
+        var backupTime:DateTime = null
         if (Minutes.minutesBetween(jst,end).getMinutes <= 0) {
-          backupTime = end.plusDays(1).toString("yyyy-MM-dd-HH-mm")
+          backupTime = end.plusDays(1)
         } else {
-          backupTime = end.toString("yyyy-MM-dd-HH-mm")
+          backupTime = end
         }
-        new Restart(this).restart(backupTime)
-        new Restart(this).restartTimer(end.minusMinutes(1).toString("yyyy-MM-dd-HH-mm"))
+        new Restart(this).restart(backupTime.toString("yyyy-MM-dd-HH-mm"))
+        new Restart(this).restartTimer(backupTime.minusMinutes(1).toString("yyyy-MM-dd-HH-mm"))
       })
     }
     getLogger.info("AutoSaveBackup enabled.")

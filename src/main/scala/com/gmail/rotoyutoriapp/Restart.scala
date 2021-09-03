@@ -26,14 +26,15 @@ class Restart(autoSaveBackup: AutoSaveBackup) {
   def restartTimer(time: String): Unit = {
     val beforeRestartTime:SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm")
     val timer = new Timer(true)
-    var count = 60
     val task:TimerTask = new TimerTask {
       override def run(): Unit = {
+        var count = 60
         new BukkitRunnable {
           override def run(): Unit = {
-            Bukkit.broadcastMessage(ChatColor.AQUA + "定期再起動まであと" + count + "秒" )
+            if (count == 60 || count == 30 || count <= 10)
+              Bukkit.broadcastMessage(ChatColor.AQUA + "定期再起動まであと" + count + "秒" )
             count -= 1
-            if (count >= 0) this.cancel()
+            if (count <= 0) this.cancel()
           }
         }.runTaskTimer(autoSaveBackup,0,20)
       }

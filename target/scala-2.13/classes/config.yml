@@ -36,7 +36,7 @@ restart: false
 #また、この機能を利用するにはSpigot標準機能の/restartコマンドが使える状態である必要があります。
 #設定例)
 #restartTime:
-# - '16:00'
 # - '04:00'
+# - '16:00'
 restartTime:
   - '04:00'
